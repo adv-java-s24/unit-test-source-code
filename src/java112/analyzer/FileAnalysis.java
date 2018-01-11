@@ -11,9 +11,10 @@ import java112.utilities.*;
  * @author Eric Knapp
  * class FileAnalysis
  */
-public class FileAnalysis implements PropertiesLoader {
+public class FileAnalysis {
 
     private static final int VALID_ARGUMENT_COUNT = 1;
+
     private FileSummaryAnalyzer summaryAnalyzer;
     private DistinctTokensAnalyzer distinctAnalyzer;
 
@@ -95,7 +96,6 @@ public class FileAnalysis implements PropertiesLoader {
             if (Character.isDigit(firstCharacter)) {
                 return;
             }
-
 
             summaryAnalyzer.processToken(token);
             distinctAnalyzer.processToken(token);

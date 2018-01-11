@@ -305,7 +305,7 @@
     </junit>
   </target>
 
-  <target name="run_tests_analyzer">
+  <target name="run_tests_analyzer" depends="build_analyzer">
     <junit printsummary="yes" fork="yes" haltonfailure="no">
       <classpath>
         <pathelement location="${analyzer_lib}"/>
@@ -315,13 +315,14 @@
         <pathelement location="${junit}" />
       </classpath>
       <formatter type="plain"/>
-      <test name="java112.tests.AnalyzerDriverTest"/>
-      <test name="java112.tests.SummaryReportTest"/>
+      <test name="java112.tests.DriverTest"/>
+      <test name="java112.tests.FileAnalysisTest"/>
+<!--       <test name="java112.tests.SummaryReportTest"/>
       <test name="java112.tests.SummaryReportOutputTest"/>
       <test name="java112.tests.UniqueTokenAnalyzerOutputTest"/>
       <test name="java112.tests.UniqueTokenAnalyzerProcessTokenTest"/>
-      <test name="java112.tests.AnalyzeFileMethodsTest"/>
-    </junit>
+
+ -->    </junit>
   </target>
 
 
