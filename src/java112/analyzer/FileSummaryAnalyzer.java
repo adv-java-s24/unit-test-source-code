@@ -1,7 +1,9 @@
 package java112.analyzer;
 
+
 import java.io.*;
 import java.util.*;
+
 
 /**
  * @author Eric Knapp
@@ -11,12 +13,13 @@ public class FileSummaryAnalyzer implements TokenAnalyzer {
 
     private int totalTokensCount;
 
+
     /**
      * Constructor for FileSummaryAnalyzer
      */
     public FileSummaryAnalyzer() {
-
     }
+
 
     /**
      *
@@ -25,12 +28,11 @@ public class FileSummaryAnalyzer implements TokenAnalyzer {
         return totalTokensCount;
     }
 
-    /**
-     *
-     */
+
     public void processToken(String token) {
         totalTokensCount += 1;
     }
+
 
     /**
      * TODO: comment
@@ -41,13 +43,13 @@ public class FileSummaryAnalyzer implements TokenAnalyzer {
         try (PrintWriter writer = new PrintWriter(new BufferedWriter(new FileWriter(outputFilePath)))) {
 
             writeSummary(inputFilePath, writer);
-
         } catch (IOException inputOutputException) {
             inputOutputException.printStackTrace();
         } catch (Exception exception) {
             exception.printStackTrace();
         }
     }
+
 
     /**
      *
@@ -66,8 +68,8 @@ public class FileSummaryAnalyzer implements TokenAnalyzer {
         writer.println("File Size: " + inputFile.length());
         writer.println("File URI: " + inputFile.toURI());
         writer.println("Total Tokens: " + totalTokensCount);
-
     }
+
 
     public String toString() {
         return "FileSummaryAnalyzer: total count: " + totalTokensCount;
