@@ -320,11 +320,11 @@
       <test name="java112.tests.FileSummaryAnalyzerTest"/>
       <test name="java112.tests.FileSummaryAnalyzerOutputTest"/>
       <test name="java112.tests.DistinctTokensAnalyzerProcessTokenTest"/>
-
+      <test name="java112.tests.DistinctTokensAnalyzerOutputTest"/>
 <!--
 
 
-      <test name="java112.tests.UniqueTokenAnalyzerProcessTokenTest"/>
+
 
  -->    </junit>
   </target>
