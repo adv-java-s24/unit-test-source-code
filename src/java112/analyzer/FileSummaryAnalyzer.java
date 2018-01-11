@@ -57,7 +57,20 @@ public class FileSummaryAnalyzer implements TokenAnalyzer {
     private void writeSummary(String inputFilePath, PrintWriter writer) {
 
         File inputFile = new File(inputFilePath);
-        Date lastModifiedDate = new Date(inputFile.lastModified());
+
+        String lastModifiedDate = null;
+        String fileLength = null;
+        String fileURI = null;
+
+        if (inputFile.exists()) {
+            lastModifiedDate = new Date(inputFile.lastModified()).toString();
+            fileLength = "" + inputFile.length();
+            fileURI = inputFile.toURI().toString();
+        } else {
+            lastModifiedDate = "Input file is missing.";
+            fileLength = "Input file is missing";
+            fileURI = "Input file is missing";
+        }
 
         writer.println("Application: File Magic");
         writer.println("Author: Eric Knapp");
@@ -65,8 +78,8 @@ public class FileSummaryAnalyzer implements TokenAnalyzer {
         writer.println("File: " + inputFilePath);
         writer.println("Date of analysis: " + new Date());
         writer.println("Last Modified:    " + lastModifiedDate);
-        writer.println("File Size: " + inputFile.length());
-        writer.println("File URI: " + inputFile.toURI());
+        writer.println("File Size: " + fileLength);
+        writer.println("File URI: " + fileURI);
         writer.println("Total Tokens: " + totalTokensCount);
     }
 

@@ -4,8 +4,6 @@ package java112.analyzer;
 import java.io.*;
 import java.util.*;
 
-import java112.utilities.*;
-
 
 /**
  * @author Eric Knapp
@@ -14,7 +12,6 @@ import java112.utilities.*;
 public class DistinctTokensAnalyzer implements TokenAnalyzer {
 
     private Set<String> distinctTokens;
-
 
     /**
      * Constructor for DistinctTokensAnalyzer
@@ -30,6 +27,8 @@ public class DistinctTokensAnalyzer implements TokenAnalyzer {
     public Set<String> getDistinctTokens() {
         return distinctTokens;
     }
+
+
 
 
     public void processToken(String token) {

@@ -318,9 +318,12 @@
       <test name="java112.tests.DriverTest"/>
       <test name="java112.tests.FileAnalysisTest"/>
       <test name="java112.tests.FileSummaryAnalyzerTest"/>
+      <test name="java112.tests.FileSummaryAnalyzerOutputTest"/>
+      <test name="java112.tests.DistinctTokensAnalyzerProcessTokenTest"/>
+
 <!--
-      <test name="java112.tests.SummaryReportOutputTest"/>
-      <test name="java112.tests.UniqueTokenAnalyzerOutputTest"/>
+
+
       <test name="java112.tests.UniqueTokenAnalyzerProcessTokenTest"/>
 
  -->    </junit>
