@@ -73,7 +73,7 @@ public class LabThreeTest {
         Method method = LabThree.class.getMethod("run", String.class);
 
         if (method == null) {
-            fail("\t****** The class must have a method named 'run'.\n");
+            fail("\t****** The class must have a method named 'run' with one String parameter.\n");
         }
     }
 
@@ -82,7 +82,7 @@ public class LabThreeTest {
         lab.run("test");
 
         if (!outContent.toString().equals("input: test\n")) {
-            fail("\t****** The class must output the string \"\input: test. "
+            fail("\t****** The class must output the string \"input: test.\" "
                 + "The string \"input: \" is hard coded and \"test\" is data that was passed "
                 + "to the class from the command line.\n");
         }
@@ -91,20 +91,34 @@ public class LabThreeTest {
     @Test
     public void mainMethodSystemOutPrintlnNoArgumentsInputTest() {
         LabThree.main(new String[0]);
-        assertEquals("Please enter one argument on the command line\n", outContent.toString());
+
+        if (!outContent.toString().equals("Please enter one argument on the command line\n")) {
+            fail("\t****** The class must output this string if there are no arguments on the command:\n"
+                + "\t****** Please enter one argument on the command line");
+        }
     }
 
     @Test
     public void mainMethodOneArgumentInputCallRunMethodTest() {
         String[] testArray = {"test"};
         LabThree.main(testArray);
-        assertEquals("input: test\n", outContent.toString());
+
+        if (!outContent.toString().equals("input: test\n")) {
+            fail("\t****** The class must output the string \"input: test.\" "
+                + "The string \"input: \" is hard coded and \"test\" is data that was passed "
+                + "to the class from the command line.\n");
+        }
     }
 
     @Test
     public void mainMethodSystemOutPrintlnTooManyArgumentsTest() {
         String[] testArray = {"test", "another test"};
         LabThree.main(testArray);
+
+        if (!outContent.toString().equals("Please enter one argument on the command line\n")) {
+            fail("\t****** The class must output this string if there is more than one argument on the command:\n"
+                + "\t****** Please enter one argument on the command line");
+        }
         assertEquals("Please enter one argument on the command line\n", outContent.toString());
     }
 
