@@ -151,11 +151,11 @@
 
     <exec executable="tar">
       <arg value="-cf" />
-      <arg value="${user_home}/backups/projects_backup.tar.gz" />
+      <arg value="${user_home}/backups/projects_with_git.tar.gz" />
       <arg value="${project_home}" />
     </exec>
 
-    <tar destfile="${user_home}/backups/projects_with_git.tgz"
+    <tar destfile="${user_home}/backups/projects_backup.tgz"
          compression="gzip"
          basedir="${project_home}"
     />
