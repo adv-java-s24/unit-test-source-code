@@ -7,16 +7,16 @@ package java112.labs1;
  */
 public class LabThree {
 
-    private String firstName;
-
+    private String lastName;
 
     /**
      * Run the demo
      */
     public void run(String input) {
 
-        firstName = "Sue";
-        System.out.println("input: " + firstName);
+        String lastName = "Smith";
+
+        System.out.println("input: " + input);
     }
 
     /**
@@ -31,10 +31,8 @@ public class LabThree {
         }
 
         LabThree demo = new LabThree();
-        String myArgument = "test";
-        demo.firstName = "Bill";
-        demo.run(myArgument);
-        System.out.println("after: " + demo.firstName);
+
+        demo.run(arguments[0]);
     }
 }
 
