@@ -12,4 +12,8 @@ public class FileAnalysis {
 
     }
 
+    public void analyze(String[] arguments) {
+        System.out.println("In FileAnalysis.analyze()");
+    }
+
 }
