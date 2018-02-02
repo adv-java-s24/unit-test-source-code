@@ -14,9 +14,9 @@ public class LabThree {
      */
     public void run(String input) {
 
-        String lastName = "Smith";
+        lastName = "Smith";
 
-        System.out.println("input: " + input);
+        System.out.println("input: " + lastName);
     }
 
     /**
