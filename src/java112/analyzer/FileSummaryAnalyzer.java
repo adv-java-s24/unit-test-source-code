@@ -38,7 +38,7 @@ public class FileSummaryAnalyzer implements TokenAnalyzer {
      * TODO: comment
      */
     public void generateOutputFile(String inputFilePath, String outputFilePath) {
-        System.out.println("totalTokensCount: " + totalTokensCount);
+        //System.out.println("totalTokensCount: " + totalTokensCount);
 
         try (PrintWriter writer = new PrintWriter(new BufferedWriter(new FileWriter(outputFilePath)))) {
 

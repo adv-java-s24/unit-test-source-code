@@ -105,6 +105,7 @@ public class UseBufferedReader {
      */
     public void processTokenArray(String[] tokenArray) {
         for (String token : tokenArray) {
+
             tokens.add(token);
             distinctTokens.add(token);
         }

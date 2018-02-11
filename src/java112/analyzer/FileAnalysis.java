@@ -30,17 +30,22 @@ public class FileAnalysis {
      *
      */
     public void analyze(String[] arguments) {
+
         if (arguments.length != VALID_ARGUMENT_COUNT) {
             System.out.println("Please enter the file to analyze.");
             return;
         }
 
-
+        long start = System.currentTimeMillis();
         String inputFilePath = arguments[0];
 
         createFileAnalyzers();
         analyzeInputFile(inputFilePath);
         writeOutputFiles(inputFilePath);
+
+        long end = System.currentTimeMillis();
+        double elapsed = (double)(end - start) / 1000;
+        System.out.println("Elapsed time: " + elapsed);
     }
 
 
@@ -54,7 +59,7 @@ public class FileAnalysis {
      *
      */
     private void analyzeInputFile(String inputFilePath) {
-        System.out.println("inputFilePath: " + inputFilePath);
+        //System.out.println("inputFilePath: " + inputFilePath);
 
         try (BufferedReader fileReader = new BufferedReader(new FileReader(inputFilePath))) {
 

@@ -15,9 +15,9 @@ public class ReaderDemo3 {
      */
     public void run(String filePath) {
 
-        BufferedReader input = null;
-        try {
-            input = new BufferedReader(new FileReader(filePath));
+        try (
+            BufferedReader input = new BufferedReader(new FileReader(filePath))
+        ) {
 
             while (input.ready()) {
                 System.out.println(input.readLine());
@@ -29,15 +29,6 @@ public class ReaderDemo3 {
             inputOutputException.printStackTrace();
         } catch (Exception exception) {
             exception.printStackTrace();
-        } finally {
-            try {
-                if (input != null) {
-                    input.close();
-                }
-            } catch (Exception exception) {
-                exception.printStackTrace();
-            }
-
         }
 
     }

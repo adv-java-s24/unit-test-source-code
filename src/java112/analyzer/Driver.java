@@ -13,7 +13,7 @@ public class Driver {
     public static void main(String[] arguments) {
         FileAnalysis analysis = new FileAnalysis();
         analysis.analyze(arguments);
-        // Here's a comment.
+
     }
 
 }
