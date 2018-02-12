@@ -32,7 +32,14 @@ public class LargestTokensAnalyzer implements TokenAnalyzer {
 
     private void loadBigWordMinimumLength() {
         String minimumLengthString = properties.getProperty("largest.words.minimum.length");
-        minimumTokenLength = Integer.parseInt(minimumLengthString);
+        try {
+            minimumTokenLength = Integer.parseInt(minimumLengthString);
+        } catch (NumberFormatException numberFormatException) {
+            numberFormatException.printStackTrace();
+            //set default to 15 as a reasonable value
+            minimumTokenLength = 15;
+        }
+
     }
 
     public Set<String> getLargestTokens() {

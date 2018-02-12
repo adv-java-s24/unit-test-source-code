@@ -19,7 +19,7 @@ public class DistinctTokenCountsAnalyzer implements TokenAnalyzer {
      * Constructor for DistinctTokenCountsAnalyzer
      */
     public DistinctTokenCountsAnalyzer() {
-        distinctTokenCounts = new TreeMap<String, Counter>();
+        distinctTokenCounts = new TreeMap<>();
     }
 
     /**
@@ -33,7 +33,7 @@ public class DistinctTokenCountsAnalyzer implements TokenAnalyzer {
     /**
      *
      */
-    public Map getDistinctTokenCounts() {
+    public Map<String, Counter> getDistinctTokenCounts() {
         return distinctTokenCounts;
     }
 
