@@ -9,7 +9,7 @@ import java.util.*;
  * @author Eric Knapp
  *
  */
-public interface PropertiesLoader{
+public interface PropertiesLoader {
 
     default Properties loadProperties(String propertiesFilePath) throws Exception {
         Properties properties = new Properties();

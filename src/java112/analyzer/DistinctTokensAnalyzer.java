@@ -12,12 +12,18 @@ import java.util.*;
 public class DistinctTokensAnalyzer implements TokenAnalyzer {
 
     private Set<String> distinctTokens;
+    private Properties properties;
 
     /**
      * Constructor for DistinctTokensAnalyzer
      */
     public DistinctTokensAnalyzer() {
         distinctTokens = new TreeSet<>();
+    }
+
+    public DistinctTokensAnalyzer(Properties properties) {
+        this();
+        this.properties = properties;
     }
 
 
@@ -39,8 +45,10 @@ public class DistinctTokensAnalyzer implements TokenAnalyzer {
     /**
      *
      */
-    public void generateOutputFile(String inputFilePath, String outputFilePath) {
+    public void generateOutputFile(String inputFilePath) {
 
+        String outputFilePath = properties.getProperty("output.directory") +
+                properties.getProperty("output.file.distinct");
         try (PrintWriter writer = new PrintWriter(new BufferedWriter(new FileWriter(outputFilePath)))) {
 
             writeDistinctTokens(writer);

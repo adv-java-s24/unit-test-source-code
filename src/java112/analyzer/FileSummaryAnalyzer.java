@@ -12,12 +12,18 @@ import java.util.*;
 public class FileSummaryAnalyzer implements TokenAnalyzer {
 
     private int totalTokensCount;
+    private Properties properties;
 
 
     /**
      * Constructor for FileSummaryAnalyzer
      */
     public FileSummaryAnalyzer() {
+    }
+
+    public FileSummaryAnalyzer(Properties properties) {
+        this();
+        this.properties = properties;
     }
 
 
@@ -37,8 +43,10 @@ public class FileSummaryAnalyzer implements TokenAnalyzer {
     /**
      * TODO: comment
      */
-    public void generateOutputFile(String inputFilePath, String outputFilePath) {
-        //System.out.println("totalTokensCount: " + totalTokensCount);
+    public void generateOutputFile(String inputFilePath) {
+
+        String outputFilePath = properties.getProperty("output.directory") +
+                properties.getProperty("output.file.summary");
 
         try (PrintWriter writer = new PrintWriter(new BufferedWriter(new FileWriter(outputFilePath)))) {
 
