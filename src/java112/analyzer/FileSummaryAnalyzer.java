@@ -80,9 +80,9 @@ public class FileSummaryAnalyzer implements TokenAnalyzer {
             fileURI = "Input file is missing";
         }
 
-        writer.println("Application: File Magic");
-        writer.println("Author: Eric Knapp");
-        writer.println("Auther email: eknapp@madisoncollege.edu");
+        writer.println("Application: " + properties.getProperty("application.name"));
+        writer.println("Author: " + properties.getProperty("author"));
+        writer.println("Auther email: " + properties.getProperty("author.email.address"));
         writer.println("File: " + inputFilePath);
         writer.println("Date of analysis: " + new Date());
         writer.println("Last Modified:    " + lastModifiedDate);

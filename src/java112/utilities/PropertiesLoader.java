@@ -11,16 +11,14 @@ import java.util.*;
  */
 public interface PropertiesLoader {
 
-    default Properties loadProperties(String propertiesFilePath) throws Exception {
+    default Properties loadProperties(String propertiesFilePath) {
         Properties properties = new Properties();
         try {
             properties.load(this.getClass().getResourceAsStream(propertiesFilePath));
         } catch (IOException ioException) {
             ioException.printStackTrace();
-            throw ioException;
         } catch (Exception exception) {
             exception.printStackTrace();
-            throw exception;
         }
         return properties;
     }

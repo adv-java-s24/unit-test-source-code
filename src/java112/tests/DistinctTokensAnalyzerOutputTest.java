@@ -24,20 +24,19 @@ public class DistinctTokensAnalyzerOutputTest {
     private static List<String> outputFileContents;
 
 
-    // private static Properties properties;
+    private static Properties properties;
+
     @BeforeClass
-    public static void initialSetUp()
-    throws java.io.FileNotFoundException,
-    java.io.IOException {
+    public static void initialSetUp() throws java.io.FileNotFoundException, java.io.IOException {
 
         inputFilePath = "inputFile";
         outputFileContents = new ArrayList<String>();
 
         // The following commented-out code is for projects 2-4.
-        // properties = new Properties();
-        // properties.setProperty("output.dir", "output/");
-        // properties.setProperty("output.file.unique", "test_unique_tokens.txt");
-        analyzer = new DistinctTokensAnalyzer();
+        properties = new Properties();
+        properties.setProperty("output.directory", "output/");
+        properties.setProperty("output.file.distinct", "test_distinct_tokens.txt");
+        analyzer = new DistinctTokensAnalyzer(properties);
 
         //analyzer.processToken("aaa");
         analyzer.processToken("one");
@@ -51,11 +50,10 @@ public class DistinctTokensAnalyzerOutputTest {
         analyzer.processToken("seven");
         analyzer.processToken("eight");
 
-        // testOutputFilePath = properties.getProperty("output.dir")
-        // + properties.getProperty("output.file.unique");
-        testOutputFilePath = "output/distinct_tokens.txt";
+        testOutputFilePath = properties.getProperty("output.directory")
+        + properties.getProperty("output.file.distinct");
 
-        analyzer.generateOutputFile(inputFilePath, testOutputFilePath);
+        analyzer.generateOutputFile(inputFilePath);
 
         testOutput = new BufferedReader(new FileReader(testOutputFilePath));
 
@@ -83,7 +81,7 @@ public class DistinctTokensAnalyzerOutputTest {
 
     @Test
     public void generateOutputFileExistsTest() throws NoSuchMethodException {
-        Method method = DistinctTokensAnalyzer.class.getMethod("generateOutputFile", String.class, String.class);
+        Method method = DistinctTokensAnalyzer.class.getMethod("generateOutputFile", String.class);
 
         if (method == null) {
             fail("\t****** The DistinctTokensAnalyzer class must have a 'generateOutputFile' method.\n");

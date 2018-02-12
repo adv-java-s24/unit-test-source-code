@@ -461,7 +461,7 @@
       </classpath>
       <formatter type="plain"/>
       <test name="java112.tests.DriverTest"/>
-      <test name="java112.tests.FileAnalysisTest"/>
+      <test name="java112.tests.FileAnalysisMethodsTest"/>
       <test name="java112.tests.FileSummaryAnalyzerTest"/>
       <test name="java112.tests.FileSummaryAnalyzerOutputTest"/>
       <test name="java112.tests.DistinctTokensAnalyzerProcessTokenTest"/>
@@ -479,10 +479,10 @@
         <pathelement location="${junit}" />
       </classpath>
       <formatter type="plain"/>
-      <test name="java112.tests.BigWordAnalyzerOutputTest" />
-      <test name="java112.tests.BigWordAnalyzerProcessTokenTest" />
-      <test name="java112.tests.TokenCountAnalyzerOutputTest" />
-      <test name="java112.tests.TokenCountAnalyzerProcessTokenTest" />
+      <test name="java112.tests.LargestTokensAnalyzerOutputTest" />
+      <test name="java112.tests.LargestTokensAnalyzerProcessTokenTest" />
+      <test name="java112.tests.DistinctTokenCountsAnalyzerOutputTest" />
+      <test name="java112.tests.DistinctTokenCountsAnalyzerProcessTokenTest" />
     </junit>
   </target>
 

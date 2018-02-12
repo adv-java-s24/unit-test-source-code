@@ -11,12 +11,11 @@ import java112.utilities.*;
  * @author Eric Knapp
  * class FileAnalysis
  */
-public class FileAnalysis {
+public class FileAnalysis implements PropertiesLoader {
 
-    private static final int VALID_ARGUMENT_COUNT = 1;
+    private static final int VALID_ARGUMENT_COUNT = 2;
 
-    private FileSummaryAnalyzer summaryAnalyzer;
-    private DistinctTokensAnalyzer distinctAnalyzer;
+    private List<TokenAnalyzer> analyzers;
 
 
     /**
@@ -38,8 +37,9 @@ public class FileAnalysis {
 
         long start = System.currentTimeMillis();
         String inputFilePath = arguments[0];
+        String propertiesFilePath = arguments[1];
 
-        createFileAnalyzers();
+        createFileAnalyzers(propertiesFilePath);
         analyzeInputFile(inputFilePath);
         writeOutputFiles(inputFilePath);
 
@@ -49,9 +49,14 @@ public class FileAnalysis {
     }
 
 
-    private void createFileAnalyzers() {
-        summaryAnalyzer = new FileSummaryAnalyzer();
-        distinctAnalyzer = new DistinctTokensAnalyzer();
+    private void createFileAnalyzers(String propertiesFilePath) {
+
+        analyzers = new ArrayList<>();
+
+        Properties properties = loadProperties(propertiesFilePath);
+
+        analyzers.add(new FileSummaryAnalyzer(properties));
+        analyzers.add(new DistinctTokensAnalyzer(properties));
     }
 
 
@@ -102,14 +107,26 @@ public class FileAnalysis {
                 return;
             }
 
-            summaryAnalyzer.processToken(token);
-            distinctAnalyzer.processToken(token);
+            processToken(token);
         }
     }
 
+    /**
+     *
+     */
+    private void processToken(String token) {
+
+        for (TokenAnalyzer analyzer : analyzers) {
+            analyzer.processToken(token);
+        }
+
+    }
 
     private void writeOutputFiles(String inputFilePath) {
-        summaryAnalyzer.generateOutputFile(inputFilePath, "output/summary.txt");
-        distinctAnalyzer.generateOutputFile(inputFilePath, "output/distinct_tokens.txt");
+
+        for (TokenAnalyzer analyzer : analyzers) {
+            analyzer.generateOutputFile(inputFilePath);
+        }
+
     }
 }
