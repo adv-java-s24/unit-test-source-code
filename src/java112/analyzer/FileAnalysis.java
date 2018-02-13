@@ -40,7 +40,7 @@ public class FileAnalysis {
         String inputFilePath = arguments[0];
 
         createFileAnalyzers();
-        analyzeInputFile(inputFilePath);
+        openInputFile(inputFilePath);
         writeOutputFiles(inputFilePath);
 
         long end = System.currentTimeMillis();
@@ -58,7 +58,7 @@ public class FileAnalysis {
     /**
      *
      */
-    private void analyzeInputFile(String inputFilePath) {
+    private void openInputFile(String inputFilePath) {
         //System.out.println("inputFilePath: " + inputFilePath);
 
         try (BufferedReader fileReader = new BufferedReader(new FileReader(inputFilePath))) {
