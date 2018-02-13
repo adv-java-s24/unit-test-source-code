@@ -40,7 +40,7 @@ public class FileAnalysis implements PropertiesLoader {
         String propertiesFilePath = arguments[1];
 
         createFileAnalyzers(propertiesFilePath);
-        analyzeInputFile(inputFilePath);
+        openInputFile(inputFilePath);
         writeOutputFiles(inputFilePath);
 
         long end = System.currentTimeMillis();
@@ -65,7 +65,7 @@ public class FileAnalysis implements PropertiesLoader {
     /**
      *
      */
-    private void analyzeInputFile(String inputFilePath) {
+    private void openInputFile(String inputFilePath) {
         //System.out.println("inputFilePath: " + inputFilePath);
 
         try (BufferedReader fileReader = new BufferedReader(new FileReader(inputFilePath))) {
