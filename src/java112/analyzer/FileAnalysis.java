@@ -100,16 +100,11 @@ public class FileAnalysis implements PropertiesLoader {
 
         for (String token : tokens) {
 
-            if (token.isEmpty()) {
-                continue;
+            if (!(token.isEmpty() || Character.isDigit(token.charAt(0)))) {
+                processToken(token);
             }
 
-            char firstCharacter = token.charAt(0);
-            if (Character.isDigit(firstCharacter)) {
-                return;
-            }
-
-            processToken(token);
+            //processToken(token);
         }
     }
 
