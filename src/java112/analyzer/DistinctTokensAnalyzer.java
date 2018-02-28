@@ -51,6 +51,7 @@ public class DistinctTokensAnalyzer implements TokenAnalyzer {
                 properties.getProperty("output.file.distinct");
         try (PrintWriter writer = new PrintWriter(new BufferedWriter(new FileWriter(outputFilePath)))) {
 
+            //writeDistinctTokensLambda(writer);
             writeDistinctTokens(writer);
         } catch (IOException inputOutputException) {
             inputOutputException.printStackTrace();
@@ -65,9 +66,27 @@ public class DistinctTokensAnalyzer implements TokenAnalyzer {
      */
     private void writeDistinctTokens(PrintWriter writer) {
 
+        long start = System.currentTimeMillis();
+
         for (String token : distinctTokens) {
             writer.println(token);
         }
+
+        long end = System.currentTimeMillis();
+        System.out.println("fore: " + (end - start));
+    }
+
+    /**
+     * TODO: comment
+     */
+    public void writeDistinctTokensLambda(PrintWriter writer) {
+
+        long start = System.currentTimeMillis();
+
+        distinctTokens.forEach(token -> writer.println(token));
+
+        long end = System.currentTimeMillis();
+        System.out.println("lambda: " + (end - start));
     }
 
 
