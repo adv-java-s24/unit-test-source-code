@@ -4,6 +4,8 @@ package java112.project2;
 import java.io.*;
 import java.util.*;
 
+import java112.utilities.*;
+
 import javax.servlet.*;
 import javax.servlet.annotation.*;
 import javax.servlet.http.*;
@@ -15,9 +17,17 @@ import javax.servlet.http.*;
  *@author    Eric Knapp
  */
 @WebServlet(
-name = "first112servlet",
-urlPatterns = {"/first112servlet"}
-) public class First112Servlet extends HttpServlet {
+name = "project2properties",
+urlPatterns = {"/project2-properties"}
+) public class Project2Properties extends HttpServlet implements PropertiesLoader {
+
+    private Properties properties;
+
+
+    public void init() throws ServletException {
+        properties = loadProperties("/project2.properties");
+    }
+
 
     /**
      *  Handles HTTP GET requests.
@@ -34,17 +44,41 @@ urlPatterns = {"/first112servlet"}
 
         PrintWriter out = response.getWriter();
 
+        int row = 0;
+
         out.println("<!DOCTYPE html>");
         out.println("<html>");
         out.println("    <head>");
-        out.println("        <title>Advanced Java</title>");
+        out.println("        <title>Project 2 Properties</title>");
         out.println("    </head>");
         out.println("<link href=\"/java112/style.css\" rel=\"stylesheet\" type=\"text/css\" />");
         out.println("    <body>");
         out.println("        <h1>Advanced Java - The Last Semester</h1>");
-        out.println("        <h2>First 112 Servlet</h2>");
-        out.println("        <h3>Eric Knapp</h3>");
-        out.println("        <p><img src=\"/java112/images/bomb-sculptures.jpg\" width=\"800\"></p>");
+        out.println("        <table>");
+        out.println("            <tr class=\"rowh\"><th>Property Name</th><th>Property Value</th></tr>");
+
+        for (Map.Entry entry : properties.entrySet()) {
+            row += 1;
+
+            if (row % 2 == 0) {
+                out.println("<tr class=\"row1\">");
+            } else {
+                out.println("<tr class=\"row2\">");
+            }
+
+
+            out.println("<td>");
+            out.println(entry.getKey());
+            out.println("</td>");
+
+            out.println("<td>");
+            out.println(entry.getValue());
+            out.println("</td>");
+
+            out.println("</tr>");
+        }
+
+        out.println("        </table>");
         out.println("        <p><a href=\"/java112\">Home</a></p>");
         out.println("    </body>");
         out.println("</html>");

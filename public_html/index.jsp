@@ -14,7 +14,7 @@
     <div id="container">
       <div id="header">
         <h1>
-          Advanced Java - Spring 2018
+          Advanced Java - The Last Semester
         </h1>
       </div>
       <div id="sub_header">

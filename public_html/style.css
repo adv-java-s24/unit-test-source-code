@@ -89,6 +89,23 @@ body {
     padding-top: 2px;
     list-style-type: circle
 }
+
+th {
+    color:white;
+}
+
+.rowh {
+    background-color: #222222;
+}
+
+.row1 {
+    background-color: #bbbbbb;
+}
+
+.row2 {
+    background-color: #dddddd;
+}
+
 a {
     color: #A40008;
     font-weight: bold;
