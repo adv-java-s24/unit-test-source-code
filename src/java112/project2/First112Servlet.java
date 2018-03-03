@@ -40,9 +40,12 @@ urlPatterns = {"/first112servlet"}
         out.print("        <title>Advanced Java</title>");
         out.print("    </head>");
         out.print("    <body>");
-        out.print("        <h1>First 112 Servlet</h1>");
+        out.print("        <h1>Advanced Java - The Last Semester</h1>");
+        out.print("        <h2>First 112 Servlet</h2>");
+        out.print("        <h3>Eric Knapp</h3>");
+        out.print("        <p><img src=\"/java112/images/bomb-sculptures.jpg\" width=\"800\"></p>");
+        out.print("        <p><a href=\"/java112\">Home</a></p>");
         out.print("    </body>");
         out.print("</html>");
-        out.close();
     }
 }
