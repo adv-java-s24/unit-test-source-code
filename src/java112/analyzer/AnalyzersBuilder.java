@@ -19,6 +19,7 @@ public class AnalyzersBuilder {
         try {
 
             analyzers = loadAnalyzers(properties, analyzersListPath);
+
         } catch (ClassNotFoundException classNotFound) {
             classNotFound.printStackTrace();
         } catch (NoSuchMethodException noSuchMethod) {
@@ -37,7 +38,7 @@ public class AnalyzersBuilder {
      * TODO: comment
      */
     private static List<TokenAnalyzer> loadAnalyzers(Properties properties, String analyzersListPath)
-            throws Exception {
+    throws Exception {
 
         List<TokenAnalyzer> analyzers = new ArrayList<>();
 

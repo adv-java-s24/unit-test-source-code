@@ -1,5 +1,5 @@
 #
- #  Load these analyzers
+#  Load these analyzers
 #
 
 java112.analyzer.DistinctTokenCountsAnalyzer
