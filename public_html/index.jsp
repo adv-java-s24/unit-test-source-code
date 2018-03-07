@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <%@ include file="jsp/head-tag.jsp" %>
-<body>
+  <body>
     <div id="container">
       <%@ include file="jsp/header.jsp" %>
       <%@ include file="content-home.jsp" %>
