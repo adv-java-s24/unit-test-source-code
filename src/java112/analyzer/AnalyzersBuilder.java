@@ -37,7 +37,7 @@ public class AnalyzersBuilder {
      * TODO: comment
      */
     private static List<TokenAnalyzer> loadAnalyzers(Properties properties, String analyzersListPath)
-    throws Exception {
+            throws Exception {
 
         List<TokenAnalyzer> analyzers = new ArrayList<>();
 
@@ -55,15 +55,13 @@ public class AnalyzersBuilder {
 
     private static List<String> loadAnalyzerList(String analyzersListPath) {
 
-        List<String> analyzerList = new ArrayList<>();
+        List<String> analyzerList = null;
 
         URL analyzerListURL = "".getClass().getResource(analyzersListPath);
 
         try (BufferedReader reader = new BufferedReader(new FileReader(analyzerListURL.getPath()))) {
 
-            while (reader.ready()) {
-                analyzerList.add(reader.readLine());
-            }
+            analyzerList = filterAnalyzerList(reader);
         } catch (FileNotFoundException fileNotFound) {
             fileNotFound.printStackTrace();
         } catch (IOException inputOutputException) {
@@ -74,5 +72,27 @@ public class AnalyzersBuilder {
 
         return analyzerList;
     }
-}
 
+
+    /**
+     *
+     */
+    private static List<String> filterAnalyzerList(BufferedReader reader) throws IOException {
+
+        List<String> analyzerList = new ArrayList<>();
+        while (reader.ready()) {
+            String line = reader.readLine();
+
+            if (line.isEmpty()) {
+                continue;
+            }
+
+
+            Character firstCharacter = line.trim().charAt(0);
+            if (firstCharacter != '#') {
+                analyzerList.add(line);
+            }
+        }
+        return analyzerList;
+    }
+}

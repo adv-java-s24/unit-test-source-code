@@ -1,3 +1,7 @@
+#
+ #  Load these analyzers
+#
+
 java112.analyzer.DistinctTokenCountsAnalyzer
 java112.analyzer.DistinctTokensAnalyzer
 java112.analyzer.FileSummaryAnalyzer
