@@ -35,7 +35,7 @@ public class AnalyzersBuilder {
 
 
     /**
-     * TODO: comment
+     * 
      */
     private static List<TokenAnalyzer> loadAnalyzers(Properties properties, String analyzersListPath)
     throws Exception {
