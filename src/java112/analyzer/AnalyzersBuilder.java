@@ -43,8 +43,9 @@ public class AnalyzersBuilder {
         List<TokenAnalyzer> analyzers = new ArrayList<>();
 
         for (String analyzerString : loadAnalyzerList(analyzersListPath)) {
-            Class one = Class.forName(analyzerString);
-            Constructor constructor = one.getConstructor(Properties.class);
+            Class<?> one = Class.forName(analyzerString);
+            Class<?>[] types = new Class[] { Properties.class };
+            Constructor<?> constructor = one.getConstructor(types);
             TokenAnalyzer analyzer = (TokenAnalyzer)constructor.newInstance(properties);
 
             analyzers.add(analyzer);
