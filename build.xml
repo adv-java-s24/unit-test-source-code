@@ -110,7 +110,9 @@
                      java112/demos/**"
            deprecation="on"
            debug="on"
-           includeAntRuntime="false" />
+           includeAntRuntime="false" >
+       <compilerarg value="-Xlint:unchecked"/>
+     </javac>
   </target>
 
   <target name="compile_labs" depends="init">
