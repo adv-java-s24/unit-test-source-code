@@ -66,9 +66,6 @@ public class DistinctTokenCountsAnalyzer implements TokenAnalyzer {
         } catch (Exception exception) {
             exception.printStackTrace();
         }
-
-        //topWordCounts();
-        //writeSortedTokenCounts();
     }
 
     private void writeTokenCounts(PrintWriter output) {
@@ -77,49 +74,6 @@ public class DistinctTokenCountsAnalyzer implements TokenAnalyzer {
             output.println(entry.getKey() + "\t" + entry.getValue());
         }
     }
-
-    private void topWordCounts() {
-
-        String key = null;
-        int biggest = 0;
-        Set<Counter> sizes = new TreeSet<Counter>();
-        for (Map.Entry<String, Counter> entry : distinctTokenCounts.entrySet()) {
-            if (entry.getValue().getCount() > biggest) {
-                biggest = entry.getValue().getCount();
-                key = entry.getKey();
-            }
-            sizes.add(entry.getValue());
-        }
-
-        System.out.println(sizes);
-        System.out.println("Key: " + key + ", Value: " + biggest);
-    }
-
-    private void writeSortedTokenCounts() {
-        String sortedFilePath = properties.getProperty("output.dir")
-                + properties.getProperty("output.file.sorted.token.count");
-
-        try (PrintWriter writer = new PrintWriter(new BufferedWriter(new FileWriter(sortedFilePath)))) {
-            writeSortedOutput(writer);
-        } catch (IOException inputOutputException) {
-            inputOutputException.printStackTrace();
-        } catch (Exception exception) {
-            exception.printStackTrace();
-        }
-    }
-
-    /**
-     * TODO: comment
-     */
-    private void writeSortedOutput(PrintWriter writer) {
-        Map<String, Counter> sortedTokenCountMap = MapUtilities.sortByValue(distinctTokenCounts);
-
-        for (Map.Entry<String, Counter> entry : sortedTokenCountMap.entrySet()) {
-            writer.println(entry.getKey() + "\t" + entry.getValue());
-        }
-
-    }
-
 
 
 }
