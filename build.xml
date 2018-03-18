@@ -34,7 +34,7 @@
   <property name="java_hamcrest" value="${project_home}/lib/java-hamcrest.jar" />
   <property name="project_1" value="present"/>
   <property name="project_2" value="present"/>
-  <!-- <property name="project_3" value="present"/> -->
+  <property name="project_3" value="present"/>
   <!-- <property name="project_4" value="present"/> -->
 
   <target name="init1">
@@ -182,7 +182,7 @@
       verbose="false"
       includes="java112/utitilies/**,
                 java112/project2/**,
-                java112/project3/**
+                java112/project3/**,
                 java112/project4/**,
                 java112/employee/**"
       excludes="*.jsp,
