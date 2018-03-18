@@ -5,7 +5,7 @@ package java112.utilities;
  * @author Eric Knapp
  * class Counter
  */
-public class Counter {
+public class Counter implements Comparable {
 
     private int count;
 
@@ -28,6 +28,40 @@ public class Counter {
 
     public int getCount() {
         return count;
+    }
+
+    public boolean equals(Object counter) {
+        if (counter == null) {
+            return false;
+        }
+
+        Counter secondCounter = (Counter)counter;
+
+        if (this.count == secondCounter.getCount()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
+    public int compareTo(Object counter) throws NullPointerException, ClassCastException {
+
+        if (counter == null) {
+            throw new NullPointerException();
+        }
+
+        Counter secondCounter = (Counter)counter;
+
+        if (this.count == secondCounter.getCount()) {
+            return 0;
+        } else if (this.count < secondCounter.getCount()) {
+            return -1;
+        } else if (this.count > secondCounter.getCount()) {
+            return 1;
+        } else {
+            return 1;
+        }
     }
 
 
