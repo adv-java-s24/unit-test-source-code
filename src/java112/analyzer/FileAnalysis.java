@@ -65,7 +65,6 @@ public class FileAnalysis implements PropertiesLoader {
      */
     private void openInputFile(String inputFilePath) {
 
-        // System.out.println("inputFilePath: " + inputFilePath);
         try (BufferedReader fileReader = new BufferedReader(new FileReader(inputFilePath))) {
 
             readInputFile(fileReader);
@@ -98,16 +97,9 @@ public class FileAnalysis implements PropertiesLoader {
 
         for (String token : tokens) {
 
-            if (token.isEmpty()) {
+            if ((token.isEmpty() || Character.isDigit(token.charAt(0)))) {
                 continue;
             }
-
-
-            char firstCharacter = token.charAt(0);
-            if (Character.isDigit(firstCharacter)) {
-                return;
-            }
-
 
             processToken(token);
         }

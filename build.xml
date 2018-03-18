@@ -34,7 +34,7 @@
   <property name="java_hamcrest" value="${project_home}/lib/java-hamcrest.jar" />
   <property name="project_1" value="present"/>
   <property name="project_2" value="present"/>
-  <!-- <property name="project_3" value="present"/> -->
+  <property name="project_3" value="present"/>
   <!-- <property name="project_4" value="present"/> -->
 
   <target name="init1">
@@ -184,7 +184,7 @@
       verbose="false"
       includes="java112/utitilies/**,
                 java112/project2/**,
-                java112/project3/**
+                java112/project3/**,
                 java112/project4/**,
                 java112/employee/**"
       excludes="*.jsp,
@@ -498,14 +498,10 @@
         <pathelement location="${junit}" />
       </classpath>
       <formatter type="plain"/>
-      <test name="java112.tests.KeywordAnalyzerProcessTokenTest" />
-      <test name="java112.tests.KeywordAnalyzerOutputTest" />
-      <test name="java112.tests.TokenSizeAnalyzerProcessTokenTest" />
-      <test name="java112.tests.TokenSizeAnalyzerOutputTest" />
     </junit>
   </target>
 
-  <target name="run_tests_analyzer" depends="run_tests_analyzer3" >
+  <target name="run_tests_analyzer" depends="build_analyzer, run_tests_analyzer3" >
     <echo message="Analyzer Tests Completed"/>
   </target>
 
