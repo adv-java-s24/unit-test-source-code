@@ -1,6 +1,6 @@
 <div id="header">
   <h1>
-    Advanced Java - The Last Semester!
+    <a href="/java112">Advanced Java - The Last Semester!</a>
   </h1>
 </div>
 <div id="sub_header">

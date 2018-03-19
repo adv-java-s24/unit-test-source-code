@@ -35,6 +35,13 @@ public class TokenLocationSearchAnalyzer implements TokenAnalyzer {
     /**
      *
      */
+    public Map<String, List<Integer>> getFoundLocations() {
+        return foundLocations;
+    }
+
+    /**
+     *
+     */
     public void processToken(String token) {
         currentTokenLocation += 1;
 
@@ -47,12 +54,13 @@ public class TokenLocationSearchAnalyzer implements TokenAnalyzer {
      *
      */
     public void generateOutputFile(String inputFilePath) {
-        System.out.println(foundLocations);
 
         String outputFilePath = properties.getProperty("output.directory")
                 + properties.getProperty("output.file.token.search.locations");
 
         try (PrintWriter writer = new PrintWriter(new BufferedWriter(new FileWriter(outputFilePath)))) {
+
+            writeFoundLocations(writer);
 
         } catch (IOException inputOutputException) {
             inputOutputException.printStackTrace();
@@ -60,6 +68,72 @@ public class TokenLocationSearchAnalyzer implements TokenAnalyzer {
             exception.printStackTrace();
         }
     }
+
+    /**
+     *
+     */
+    private void writeFoundLocations(PrintWriter writer) {
+
+        for (Map.Entry<String, List<Integer>> entry : foundLocations.entrySet()) {
+            writeCurrentSearchTokenLocations(entry, writer);
+        }
+
+    }
+
+    /**
+     *
+     */
+    private void writeCurrentSearchTokenLocations(Map.Entry<String, List<Integer>> tokenLocations, PrintWriter writer) {
+
+        writeSearchToken(tokenLocations, writer);
+
+        writeSearchLocations(tokenLocations, writer);
+    }
+
+    /**
+     *
+     */
+    private void writeSearchLocations(Map.Entry<String, List<Integer>> tokenLocations, PrintWriter writer) {
+
+        List<Integer> locations = tokenLocations.getValue();
+
+        String outputLine = "[";
+        String nextLocation = null;
+
+        for (Integer location : locations) {
+            nextLocation = location.toString();
+
+            int proposedLineLength = outputLine.length() + nextLocation.length();
+
+            if (proposedLineLength > OUTPUT_LINE_MAXIMUM) {
+                writer.println(outputLine.trim());
+                outputLine = nextLocation + ", ";
+            } else {
+                outputLine += nextLocation + ", ";
+            }
+        }
+
+        if (outputLine.length() > 1) {
+            writer.print(outputLine.substring(0, outputLine.length() - 2));
+        } else {
+            writer.print(outputLine.trim());
+        }
+
+        writer.println("]");
+        writer.println();
+
+    }
+
+    /**
+     * TODO: comment
+     */
+    public void writeSearchToken(Map.Entry<String, List<Integer>> tokenLocations, PrintWriter writer) {
+
+        writer.print(tokenLocations.getKey());
+        writer.println(" =");
+
+    }
+
 
     /**
      *
