@@ -4,8 +4,6 @@ package java112.analyzer;
 import java.io.*;
 import java.util.*;
 
-import java112.utilities.*;
-
 
 /**
  * @author Eric Knapp
@@ -100,6 +98,32 @@ public class TokenLengthsAnalyzer implements TokenAnalyzer {
      */
     private void writeHistogram(PrintWriter output, double tokensPerAsterisk) {
 
+        for (Map.Entry<Integer, Integer> entry : tokenLengths.entrySet()) {
+            Integer tokenLength = entry.getKey();
+            Integer tokenLengthCount = entry.getValue();
+            output.print(String.format("%1$-4s", tokenLength));
+            output.println(writeAsterisksForLength(tokenLengthCount, tokensPerAsterisk));
+        }
+
+        output.println();
+        output.println("Key: * ~= " + Math.round(tokensPerAsterisk)  + " tokens");
+
+    }
+
+    /**
+     * TODO: comment
+     */
+    public String writeAsterisksForLength(Integer tokenLengthCount, double tokensPerAsterisk) {
+
+        int lengthCount = tokenLengthCount.intValue();
+        double asteriskCount = (double)lengthCount / tokensPerAsterisk;
+
+        if (asteriskCount < 1) {
+            return "*";
+        }
+
+        String asterisks = String.join("", Collections.nCopies((int)Math.round(asteriskCount), "*"));
+        return asterisks;
     }
 }
 
