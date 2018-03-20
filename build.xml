@@ -499,10 +499,10 @@
         <pathelement location="${config}" />
       </classpath>
       <formatter type="plain"/>
-      <!-- <test name="java112.tests.TokenLengthsAnalyzerProcessTokenTest" /> -->
+      <test name="java112.tests.TokenLengthsAnalyzerProcessTokenTest" />
       <test name="java112.tests.TokenLengthsAnalyzerOutputTest" />
-      <!-- <test name="java112.tests.TokenLocationSearchAnalyzerProcessTokenTest" /> -->
-      <!-- <test name="java112.tests.TokenLocationSearchAnalyzerOutputTest" /> -->
+      <test name="java112.tests.TokenLocationSearchAnalyzerProcessTokenTest" />
+      <test name="java112.tests.TokenLocationSearchAnalyzerOutputTest" />
     </junit>
   </target>
 

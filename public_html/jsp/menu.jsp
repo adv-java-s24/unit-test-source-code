@@ -31,7 +31,7 @@
     Project 3
   </div>
   <ul>
-    <li><a href="/java112/project3-request" class="menu_link">HTTP Requests</a></li>
+    <li><a href="/java112/project3-request?queryParameter=Hello" class="menu_link">HTTP Requests</a></li>
     <li><a href="/java112/project3-properties" class="menu_link">Project 3 Properties</a></li>
   </ul>
 

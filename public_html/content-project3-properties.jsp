@@ -7,13 +7,13 @@
     <h2>Project 3 Properties</h2>
 
     <table>
-      <tr><th>Property</th><th>Value</th></tr>
-      <tr><td>Author</td><td>${project3Properties["author"]}</td></tr>
-      <tr><td>Email</td><td>${project3Properties["author.email.address"]}</td></tr>
-      <tr><td>Course</td><td>${project3Properties["course.title"]}</td></tr>
-      <tr><td>Times</td><td>${project3Properties["course.times"]}</td></tr>
-      <tr><td>Instructor</td><td>${project3Properties["course.instructor"]}</td></tr>
-      <tr><td>Description</td><td>${project3Properties["description"]}</td></tr>
+      <tr class="rowh"><th>Property</th><th>Value</th></tr>
+      <tr class="row1"><td>Author</td><td>${project3Properties["author"]}</td></tr>
+      <tr class="row2"><td>Email</td><td>${project3Properties["author.email.address"]}</td></tr>
+      <tr class="row1"><td>Course</td><td>${project3Properties["course.title"]}</td></tr>
+      <tr class="row2"><td>Times</td><td>${project3Properties["course.times"]}</td></tr>
+      <tr class="row1"><td>Instructor</td><td>${project3Properties["course.instructor"]}</td></tr>
+      <tr class="row2"><td>Description</td><td>${project3Properties["description"]}</td></tr>
     </table>
 
 
