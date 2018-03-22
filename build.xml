@@ -182,7 +182,7 @@
       destdir="${web_classes}"
       extdirs="${lib}"
       verbose="false"
-      includes="java112/utitilies/**,
+      includes="java112/utilities/**,
                 java112/project2/**,
                 java112/project3/**,
                 java112/project4/**,

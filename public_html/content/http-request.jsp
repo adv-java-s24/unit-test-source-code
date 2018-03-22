@@ -26,6 +26,6 @@
     <!-- Content Ends -->
 
   </div>
-  <%@ include file="jsp/menu.jsp" %>
+  <%@ include file="../jsp/menu.jsp" %>
   <div id="clear"></div>
 </div>
