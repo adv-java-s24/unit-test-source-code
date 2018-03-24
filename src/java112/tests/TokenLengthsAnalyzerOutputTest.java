@@ -76,6 +76,12 @@ public class TokenLengthsAnalyzerOutputTest {
         File file = new File(testOutputFilePath);
         file.delete();
 
+        File nullFile = new File("output/null");
+
+        if (nullFile.exists()) {
+            nullFile.delete();
+        }
+
         analyzer = null;
     }
 

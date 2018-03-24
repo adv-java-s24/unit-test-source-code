@@ -194,7 +194,16 @@ public class TokenLocationSearchAnalyzerOutputTest {
         String searchTokensFilePath = searchTokensURL.getPath();
 
         File keywordFile = new File(searchTokensFilePath);
-        keywordFile.delete();
+
+        if (keywordFile.exists()) {
+            keywordFile.delete();
+        }
+
+        File testFile = new File(testOutputFilePath);
+
+        if (testFile.exists()) {
+            testFile.delete();
+        }
 
         analyzer = null;
     }
