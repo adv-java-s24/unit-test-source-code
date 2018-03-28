@@ -33,6 +33,9 @@
   <ul>
     <li><a href="/java112/project3-request?queryParameter=Hello" class="menu_link">HTTP Requests</a></li>
     <li><a href="/java112/project3-properties" class="menu_link">Project 3 Properties</a></li>
+    <li><a href="/java112/forward-demo" class="menu_link">Forwarding demo</a></li>
+    <li><a href="/java112/redirect-demo" class="menu_link">Redirection Demo</a></li>
+    <li><a href="/java112/mvc-demo" class="menu_link">MVC demo</a></li>
   </ul>
 
   <div class="menu_title">
