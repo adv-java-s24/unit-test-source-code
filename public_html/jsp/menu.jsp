@@ -13,7 +13,7 @@
   </div>
   <ul>
     <li><a href="firstJSP.jsp" class="menu_link">firstJSP.jsp</a></li>
-    <li><a href="expressions.jsp" class="menu_link">expressions.jsp</a></li>
+    <li><a href="expressions.jsp?testParam=Hello!" class="menu_link">expressions.jsp</a></li>
     <li><a href="scriptlets.jsp" class="menu_link">scriptlets.jsp</a></li>
     <li><a href="declarations.jsp" class="menu_link">declarations.jsp</a></li>
     <li><a href="declarations2.jsp" class="menu_link">declarations2.jsp</a></li>
