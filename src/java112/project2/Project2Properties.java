@@ -79,7 +79,7 @@ urlPatterns = {"/project2-properties"}
         }
 
         out.println("        </table>");
-        out.println("        <p><a href=\"/java112\">Home</a></p>");
+        out.println("        <p><a href=\"/java112\" class=\"menu_link\">Home</a></p>");
         out.println("    </body>");
         out.println("</html>");
     }

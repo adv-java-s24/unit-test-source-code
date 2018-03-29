@@ -8,6 +8,10 @@
         return accessCount++;
     }
 
+    public void jspInit() {
+        accessCount = 1000;
+    }
+
 %>
 
 <html xmlns="http://www.w3.org/1999/xhtml">

@@ -45,7 +45,7 @@ urlPatterns = {"/first112servlet"}
         out.println("        <h2>First 112 Servlet</h2>");
         out.println("        <h3>Eric Knapp</h3>");
         out.println("        <p><img src=\"/java112/images/bomb-sculptures.jpg\" width=\"800\"></p>");
-        out.println("        <p><a href=\"/java112\">Home</a></p>");
+        out.println("        <p><a href=\"/java112\" class=\"menu_link\">Home</a></p>");
         out.println("    </body>");
         out.println("</html>");
     }
