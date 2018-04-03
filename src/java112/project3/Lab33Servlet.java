@@ -15,10 +15,9 @@ import javax.servlet.http.*;
  *@author    Eric Knapp
  */
 @WebServlet(
-    name = "lab33servlet",
-    urlPatterns = {"/lab33"}
-)
-public class Lab33Servlet extends HttpServlet {
+name = "lab33Servlet",
+urlPatterns = {"/lab33"}
+) public class Lab33Servlet extends HttpServlet {
 
     /**
      *  Handles HTTP GET requests.
@@ -44,15 +43,7 @@ public class Lab33Servlet extends HttpServlet {
 
         String url = "/lab33.jsp";
 
-        RequestDispatcher dispatcher =
-                getServletContext().getRequestDispatcher(url);
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
         dispatcher.forward(request, response);
-        
-        
-        
     }
 }
-
-
-
-

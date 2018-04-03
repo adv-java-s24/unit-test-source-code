@@ -141,13 +141,14 @@ public class TokenLocationSearchAnalyzer implements TokenAnalyzer {
     private void loadFoundLocationsMap() {
 
         String searchTokensClasspath = properties.getProperty("classpath.search.tokens");
-        URL searchTokensURL = this.getClass().getResource(searchTokensClasspath);
-        String searchTokensFilePath = searchTokensURL.getPath();
 
-        try (BufferedReader searchTokensReader = new BufferedReader(new FileReader(searchTokensFilePath))) {
+        try (
+            InputStream inputStream = this.getClass().getResourceAsStream(searchTokensClasspath);
+            InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+            BufferedReader searchTokensReader = new BufferedReader(inputStreamReader)
+        ) {
+
             readSearchTokens(searchTokensReader);
-        } catch (FileNotFoundException fileNotFound) {
-            fileNotFound.printStackTrace();
         } catch (IOException inputOutputException) {
             inputOutputException.printStackTrace();
         } catch (Exception exception) {

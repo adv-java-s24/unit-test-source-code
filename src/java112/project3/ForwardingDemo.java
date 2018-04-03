@@ -34,9 +34,9 @@ urlPatterns = {"/forward-demo"}
     throws ServletException, IOException {
 
         // Create the url
-        String url = "/first-mvc.jsp";
+        String url = "/transferDemo.jsp";
 
-        request.setAttribute("pageTitle", "First MVC Demo");
+        //request.setAttribute("pageTitle", "First MVC Demo");
 
         // Forward to jsp page
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);

@@ -6,7 +6,7 @@
       <%@ include file="jsp/header.jsp" %>
       <div id="main_content_top"></div>
       <div id="main_content">
-      <%@ include file="content/content-home.jsp" %>
+      <%@ include file="content/content-hello.jsp" %>
       <%@ include file="jsp/menu.jsp" %>
         <div id="clear"></div>
       </div>

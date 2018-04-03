@@ -13,11 +13,11 @@ import javax.servlet.annotation.*;
  *@author    Eric Knapp
  */
 @WebServlet(
-    name = "beans",
-    urlPatterns = { "/beans-demo" }
+    name = "helloServlet",
+    urlPatterns = { "/hello" }
 )
 
-public class BeanDemo extends HttpServlet {
+public class HelloServlet extends HttpServlet {
 
     /**
      *  Handles HTTP GET requests.
@@ -32,19 +32,13 @@ public class BeanDemo extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
 
-         BeanOne bean = new BeanOne();
-         bean.setData("Hello");
-         bean.setFirstName("Fred");
+        String url = "/hello.jsp";
 
-         request.setAttribute("myCoolBean", bean);
+        request.setAttribute("tempDirectory", System.getProperty("java.io.tmpdir"));
 
-         //request.setAttribute("pageTitle", "Bean Demo");
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
+        dispatcher.forward(request, response);
 
-         String url = "/beanOneDemo.jsp";
-
-         RequestDispatcher dispatcher
-                = getServletContext().getRequestDispatcher(url);
-         dispatcher.forward(request, response);
     }
 
 }

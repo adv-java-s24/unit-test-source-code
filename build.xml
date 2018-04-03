@@ -299,10 +299,13 @@
     |   tcdown, tcup, tcbounce - Restarting tomcat                             |
 #########################################################################-->
   <target name="tcdown">
-    <exec dir="." executable="${tomcat}/bin/shutdown.sh" />
+    <exec dir="." executable="${tomcat}/bin/shutdown.sh">
+    </exec>
   </target>
   <target name="tcup">
-    <exec dir="." executable="${tomcat}/bin/startup.sh" />
+    <exec dir="." executable="${tomcat}/bin/startup.sh">
+        <env key="CATALINA_TMPDIR" value="/home/student/analyzerdata/"/>
+    </exec>
   </target>
   <target name="tcbounce">
     <antcall target="tcdown" />

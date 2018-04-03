@@ -35,7 +35,7 @@ public class AnalyzersBuilder {
 
 
     /**
-     * 
+     *
      */
     private static List<TokenAnalyzer> loadAnalyzers(Properties properties, String analyzersListPath)
     throws Exception {
@@ -59,9 +59,11 @@ public class AnalyzersBuilder {
 
         List<String> analyzerList = null;
 
-        URL analyzerListURL = "".getClass().getResource(analyzersListPath);
-
-        try (BufferedReader reader = new BufferedReader(new FileReader(analyzerListURL.getPath()))) {
+        try (
+            InputStream inputStream = "".getClass().getResourceAsStream(analyzersListPath);
+            InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+            BufferedReader reader = new BufferedReader(inputStreamReader)
+        ) {
 
             analyzerList = filterAnalyzerList(reader);
         } catch (FileNotFoundException fileNotFound) {

@@ -11,6 +11,7 @@
     <h3>MVC Demo</h3>
 
     <p>Data from my bean: ${myCoolBean.data}</p>
+    <p>First Name: ${myCoolBean.firstName}</p>
 
     <br />
 

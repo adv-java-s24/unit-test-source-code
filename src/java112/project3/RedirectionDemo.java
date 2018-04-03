@@ -17,7 +17,7 @@ import javax.servlet.http.*;
 @WebServlet(
     name = "redirectDemo",
     urlPatterns = {"/redirect-demo"}
-) 
+)
 public class RedirectionDemo extends HttpServlet {
 
     /**
@@ -34,7 +34,6 @@ public class RedirectionDemo extends HttpServlet {
             HttpServletResponse response)
             throws ServletException, IOException {
 
-        request.setAttribute("pageTitle", "Transfer Demo");
 
         // Create the url
         String url = "/java112/transferDemo.jsp";

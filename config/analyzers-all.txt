@@ -4,7 +4,7 @@
 
 #java112.analyzer.DistinctTokenCountsAnalyzer
 #java112.analyzer.DistinctTokensAnalyzer
-#java112.analyzer.FileSummaryAnalyzer
+java112.analyzer.FileSummaryAnalyzer
 #java112.analyzer.LargestTokensAnalyzer
-#java112.analyzer.TokenLengthsAnalyzer
+java112.analyzer.TokenLengthsAnalyzer
 java112.analyzer.TokenLocationSearchAnalyzer
