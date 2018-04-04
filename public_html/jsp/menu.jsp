@@ -45,5 +45,8 @@
   <div class="menu_title">
     Project 4
   </div>
+  <ul>
+    <li><a href="/java112/" class="menu_link">Analyzer</a></li>
+  </ul>
 
 </div>

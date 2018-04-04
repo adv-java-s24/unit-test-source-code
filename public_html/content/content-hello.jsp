@@ -8,5 +8,9 @@
 
   <p>${tempDirectory}</p>
 
+  <p>${propertiesTest}</p>
+
+  <p>${sessionID}</p>
+
   <%-- End of Content  --%>
 </div>

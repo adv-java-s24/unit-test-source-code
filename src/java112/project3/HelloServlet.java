@@ -7,6 +7,8 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 
+import java112.utilities.*;
+
 /**
  *
  *
@@ -17,7 +19,7 @@ import javax.servlet.annotation.*;
     urlPatterns = { "/hello" }
 )
 
-public class HelloServlet extends HttpServlet {
+public class HelloServlet extends HttpServlet implements PropertiesLoader {
 
     /**
      *  Handles HTTP GET requests.
@@ -35,6 +37,19 @@ public class HelloServlet extends HttpServlet {
         String url = "/hello.jsp";
 
         request.setAttribute("tempDirectory", System.getProperty("java.io.tmpdir"));
+
+        HttpSession session = request.getSession();
+
+        Properties properties = loadProperties("/test.properties");
+
+        request.setAttribute("propertiesTest", properties);
+
+        request.setAttribute("sessionID", session.getId());
+
+        request.setAttribute("pageTitle", "Hello");
+
+
+        System.out.println(properties);
 
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
         dispatcher.forward(request, response);
