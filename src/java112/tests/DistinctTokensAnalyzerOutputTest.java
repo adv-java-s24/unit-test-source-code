@@ -145,6 +145,21 @@ public class DistinctTokensAnalyzerOutputTest {
         outputLineCheck("two", outputFileContents.get(7));
     }
 
+    @Test
+    public void outputLineNineTest() {
+
+        outputLineCheck("One", outputFileContents.get(8));
+    }
+
+    @Test
+        public void outputFileSizeTest() {
+            if (outputFileContents.size() != 9 ) {
+                fail("\t****** The output file should contain 9 lines of output, but it had \n"
+                    + "\t****** " + outputFileContents.size() + " lines.");
+            }
+
+        }
+
 
     public void outputLineCheck(String expectedOutput, String lineContent) {
 
@@ -153,4 +168,6 @@ public class DistinctTokensAnalyzerOutputTest {
             + "\t****** Expected <" + expectedOutput + ">, recieved <" + lineContent + ">\n");
         }
     }
+
+
 }

@@ -1,6 +1,6 @@
 <!--
     10-152-112 Advanced Java
-    build.xml for project 2
+    build.xml for projects 2-4
 -->
 
 <project default="deploy">
@@ -35,7 +35,13 @@
   <property name="project_1" value="present"/>
   <property name="project_2" value="present"/>
   <property name="project_3" value="present"/>
-  <!-- <property name="project_4" value="present"/> -->
+  <property name="project_4" value="present"/>
+
+  <path id="classpath">
+      <fileset dir="${lib}">
+        <include name="*.jar"/>
+      </fileset>
+  </path>
 
   <target name="init1">
     <!-- Create the time stamp -->
@@ -96,7 +102,7 @@
     <!-- Compile the java code from ${src} into ${build} -->
     <javac srcdir="${src}"
            destdir="${build}/classes"
-           extdirs="${lib}"
+           classpathref="classpath"
            verbose="false"
            excludes="*.jsp,
                      *.html,
@@ -119,7 +125,7 @@
     <!-- Compile the java code from ${src} into ${build} -->
     <javac srcdir="${src}"
            destdir="${build}/classes"
-           extdirs="${lib}"
+           classpathref="classpath"
            verbose="false"
            excludes="*.jsp,
                      *.html,
@@ -140,7 +146,7 @@
       <!-- Compile the java code from ${src} into ${build} -->
       <javac srcdir="${src}"
           destdir="${build}/classes"
-          extdirs="${lib}"
+          classpathref="classpath"
           verbose="false"
           excludes="*.jsp,
                     *.html,
@@ -180,7 +186,7 @@
   <target name="compile_web" depends="init">
     <javac srcdir="${src}"
       destdir="${web_classes}"
-      extdirs="${lib}"
+      classpathref="classpath"
       verbose="false"
       includes="java112/utilities/**,
                 java112/project2/**,
@@ -275,7 +281,7 @@
  </target>
 
 <!--########################################################################
-    |   submit_project - Compress project and place in public dropbox                     |
+    |   submit_project - Compress project and place in backups                    |
 #########################################################################-->
 <target name="backup">
   <delete file="${user_home}/backups/projects_backup.tar.gz"/>
@@ -336,7 +342,7 @@
     <!-- Compile the java code from ${src} into ${build} -->
     <javac srcdir="${src}"
     destdir="${build}/classes"
-    extdirs="${lib}"
+    classpathref="classpath"
     verbose="false"
     excludes="*.jsp,
               *.html,

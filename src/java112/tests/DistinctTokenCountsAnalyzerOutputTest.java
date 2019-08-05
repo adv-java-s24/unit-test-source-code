@@ -35,6 +35,7 @@ public class DistinctTokenCountsAnalyzerOutputTest {
         properties.setProperty("output.file.distinct.counts", "test_token_count.txt");
 
         analyzer = new DistinctTokenCountsAnalyzer(properties);
+        analyzer.processToken("One");
         analyzer.processToken("one");
         analyzer.processToken("one");
         analyzer.processToken("two");
@@ -125,4 +126,11 @@ public class DistinctTokenCountsAnalyzerOutputTest {
     public void testOutputLineEight() {
         assertEquals("two\t1", outputFileContents.get(7));
     }
+
+    @Test
+    public void outputLineNineTest() {
+        assertEquals("One\t1", outputFileContents.get(8));
+    }
+
+
 }
