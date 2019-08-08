@@ -39,6 +39,7 @@ public class DistinctTokensAnalyzerOutputTest {
         analyzer = new DistinctTokensAnalyzer(properties);
 
         //analyzer.processToken("aaa");
+        analyzer.processToken("One");
         analyzer.processToken("one");
         analyzer.processToken("one");
         analyzer.processToken("two");
@@ -88,68 +89,68 @@ public class DistinctTokensAnalyzerOutputTest {
         }
     }
 
-
     @Test
     public void outputLineOneTest() {
 
-        outputLineCheck("eight", outputFileContents.get(0));
-        String expectedOutput = "eight";
+        outputLineCheck("One", outputFileContents.get(0));
     }
-
-
     @Test
     public void outputLineTwoTest() {
 
-        outputLineCheck("five", outputFileContents.get(1));
+        outputLineCheck("eight", outputFileContents.get(1));
+        String expectedOutput = "eight";
     }
 
 
     @Test
     public void outputLineThreeTest() {
 
-        outputLineCheck("four", outputFileContents.get(2));
+        outputLineCheck("five", outputFileContents.get(2));
     }
 
 
     @Test
     public void outputLineFourTest() {
 
-        outputLineCheck("one", outputFileContents.get(3));
+        outputLineCheck("four", outputFileContents.get(3));
     }
 
 
     @Test
     public void outputLineFiveTest() {
 
-        outputLineCheck("seven", outputFileContents.get(4));
+        outputLineCheck("one", outputFileContents.get(4));
     }
 
 
     @Test
     public void outputLineSixTest() {
 
-        outputLineCheck("six", outputFileContents.get(5));
+        outputLineCheck("seven", outputFileContents.get(5));
     }
 
 
     @Test
     public void outputLineSevenTest() {
 
-        outputLineCheck("three", outputFileContents.get(6));
+        outputLineCheck("six", outputFileContents.get(6));
     }
 
 
     @Test
     public void outputLineEightTest() {
 
-        outputLineCheck("two", outputFileContents.get(7));
+        outputLineCheck("three", outputFileContents.get(7));
     }
+
 
     @Test
     public void outputLineNineTest() {
 
-        outputLineCheck("One", outputFileContents.get(8));
+        outputLineCheck("two", outputFileContents.get(8));
     }
+
+
 
     @Test
         public void outputFileSizeTest() {

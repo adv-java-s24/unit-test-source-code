@@ -190,7 +190,7 @@ public class TokenLocationSearchAnalyzerOutputTest {
         File file = new File(testOutputFilePath);
 
         String searchTokensClasspath = properties.getProperty("classpath.search.tokens");
-        URL searchTokensURL = "".getClass().getResource(searchTokensClasspath);
+        URL searchTokensURL = TokenLocationSearchAnalyzerOutputTest.class.getResource(searchTokensClasspath);
         String searchTokensFilePath = searchTokensURL.getPath();
 
         File keywordFile = new File(searchTokensFilePath);

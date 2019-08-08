@@ -50,7 +50,7 @@ public class TokenLocationSearchAnalyzerProcessTokenTest {
         analyzer = null;
 
         String searchTokensClasspath = properties.getProperty("classpath.search.tokens");
-        URL searchTokensURL = "".getClass().getResource(searchTokensClasspath);
+        URL searchTokensURL = TokenLocationSearchAnalyzerOutputTest.class.getResource(searchTokensClasspath);
         String searchTokensFilePath = searchTokensURL.getPath();
 
         File file = new File(searchTokensFilePath);

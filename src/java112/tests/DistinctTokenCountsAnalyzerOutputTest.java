@@ -36,6 +36,7 @@ public class DistinctTokenCountsAnalyzerOutputTest {
 
         analyzer = new DistinctTokenCountsAnalyzer(properties);
         analyzer.processToken("One");
+        analyzer.processToken("1");
         analyzer.processToken("one");
         analyzer.processToken("one");
         analyzer.processToken("two");
@@ -89,48 +90,55 @@ public class DistinctTokenCountsAnalyzerOutputTest {
 
     @Test
     public void testOutputLineOne() {
-        assertEquals("eight\t3", outputFileContents.get(0));
+        assertEquals("1\t1", outputFileContents.get(0));
     }
+
 
     @Test
     public void testOutputLineTwo() {
-        assertEquals("five\t2", outputFileContents.get(1));
+        assertEquals("One\t1", outputFileContents.get(1));
     }
 
     @Test
     public void testOutputLineThree() {
-        assertEquals("four\t1", outputFileContents.get(2));
+        assertEquals("eight\t3", outputFileContents.get(2));
     }
 
     @Test
     public void testOutputLineFour() {
-        assertEquals("one\t2", outputFileContents.get(3));
+        assertEquals("five\t2", outputFileContents.get(3));
     }
 
     @Test
     public void testOutputLineFive() {
-        assertEquals("seven\t4", outputFileContents.get(4));
+        assertEquals("four\t1", outputFileContents.get(4));
     }
 
     @Test
     public void testOutputLineSix() {
-        assertEquals("six\t1", outputFileContents.get(5));
+        assertEquals("one\t2", outputFileContents.get(5));
     }
 
     @Test
     public void testOutputLineSeven() {
-        assertEquals("three\t2", outputFileContents.get(6));
+        assertEquals("seven\t4", outputFileContents.get(6));
     }
 
     @Test
     public void testOutputLineEight() {
-        assertEquals("two\t1", outputFileContents.get(7));
+        assertEquals("six\t1", outputFileContents.get(7));
     }
 
     @Test
-    public void outputLineNineTest() {
-        assertEquals("One\t1", outputFileContents.get(8));
+    public void testOutputLineNine() {
+        assertEquals("three\t2", outputFileContents.get(8));
     }
+
+    @Test
+    public void testOutputLineTen() {
+        assertEquals("two\t1", outputFileContents.get(9));
+    }
+
 
 
 }
