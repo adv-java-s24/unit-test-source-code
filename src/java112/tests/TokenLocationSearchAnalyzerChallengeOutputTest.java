@@ -1,22 +1,22 @@
 package java112.tests;
 
 
-import java.io.*;
-import java.lang.reflect.*;
-import java.util.*;
-import java.net.*;
-
-import java112.analyzer.*;
-
-import org.junit.After;
+import java112.analyzer.TokenLocationSearchAnalyzer;
 import org.junit.AfterClass;
-import static org.junit.Assert.*;
-import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import java.io.*;
+import java.lang.reflect.Method;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Properties;
 
-public class TokenLocationSearchAnalyzerOutputTest {
+import static org.junit.Assert.*;
+
+
+public class TokenLocationSearchAnalyzerChallengeOutputTest {
 
     private static TokenLocationSearchAnalyzer analyzer;
     private static BufferedReader testOutput;
@@ -29,8 +29,8 @@ public class TokenLocationSearchAnalyzerOutputTest {
 
     @BeforeClass
     public static void initialSetUp()
-    throws java.io.FileNotFoundException,
-    java.io.IOException {
+    throws FileNotFoundException,
+    IOException {
 
         inputFilePath = "inputFile";
         outputFileContents = new ArrayList<String>();
@@ -190,7 +190,7 @@ public class TokenLocationSearchAnalyzerOutputTest {
         File file = new File(testOutputFilePath);
 
         String searchTokensClasspath = properties.getProperty("classpath.search.tokens");
-        URL searchTokensURL = TokenLocationSearchAnalyzerOutputTest.class.getResource(searchTokensClasspath);
+        URL searchTokensURL = TokenLocationSearchAnalyzerChallengeOutputTest.class.getResource(searchTokensClasspath);
         String searchTokensFilePath = searchTokensURL.getPath();
 
         File keywordFile = new File(searchTokensFilePath);
@@ -208,33 +208,6 @@ public class TokenLocationSearchAnalyzerOutputTest {
         analyzer = null;
     }
 
-
-    @Test
-    public void testClassExists() {
-        assertNotNull(analyzer);
-    }
-
-
-    @Test
-    public void testForWriteOutputFileExists() throws NoSuchMethodException {
-        Method method = TokenLocationSearchAnalyzer.class.getMethod("generateOutputFile",
-        String.class);
-        assertNotNull(method);
-    }
-
-
-    @Test
-    public void testForNoTrailingSpaces() {
-
-        for (String outputLine : outputFileContents) {
-
-            if (outputLine.endsWith(" ")) {
-                fail("\nOutput line has trailing spaces: \"" + outputLine + "\"\n");
-            }
-        }
-    }
-
-
     @Test
     public void testForNoCommaBeforeRightBracket() {
 
@@ -244,32 +217,6 @@ public class TokenLocationSearchAnalyzerOutputTest {
             }
         }
     }
-
-
-    @Test
-    public void testOutputLinesLessThan80Characters() {
-
-        boolean lineTooLongFound = false;
-
-        for (String outputLine : outputFileContents) {
-            if (outputLine.length() > 80) {
-                fail("\nOutput Line longer than 80 characters: \"" + outputLine);
-            }
-        }
-    }
-
-
-    @Test
-    public void testFirstEntryFormedCorrectly() {
-
-        String outputLine = outputFileContents.get(0);
-
-        if (!outputLine.equals("notfound =")) {
-            fail("\tKeyword output must be of the form \"keyword =\" with no space at the end\n\tand one space before the equal sign. "
-                    + "\n\t\tIncorrect output: \"" + outputLine + "\"\n");
-        }
-    }
-
 
     @Test
     public void testEntryWithNoOccurences() {
@@ -282,39 +229,6 @@ public class TokenLocationSearchAnalyzerOutputTest {
         assertEquals("", outputFileContents.get(2));
     }
 
-    @Test
-    public void testForEmptyKeyword() {
-
-        String firstLine = outputFileContents.get(0);
-
-        if (firstLine.equals(" =")) {
-            fail("Keywords can not be an empty string.\n\t\tIncorrect output: "
-                    + firstLine);
-        }
-
-    }
-
-    @Test
-    public void testForSpaceAfterCommas() {
-
-        int indexOfFirstSpace = outputFileContents.get(4).indexOf(" ");
-
-        if (indexOfFirstSpace != 3) {
-            fail("\tCommas must be follow by a space except at end of line: "
-                    + "\n\t\tIncorrect output: \"" + outputFileContents.get(4) + "\"\n");
-        }
-    }
-
-    @Test
-    public void testForLeadingSpace() {
-
-        String lineNine = outputFileContents.get(8);
-
-       if (lineNine.startsWith(" ")) {
-           fail("\tOutput lines must not start with a space: "
-                + "\n\t\tIncorrect output: \"" + lineNine + "\"\n");
-       }
-    }
 
     @Test
     public void testForRightBracket() {

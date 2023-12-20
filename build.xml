@@ -512,6 +512,7 @@
       <test name="java112.tests.TokenLengthsAnalyzerOutputTest" />
       <test name="java112.tests.TokenLocationSearchAnalyzerProcessTokenTest" />
       <test name="java112.tests.TokenLocationSearchAnalyzerOutputTest" />
+      <test name="java112.tests.TokenLocationSearchAnalyzerChallengeOutputTest" />
     </junit>
   </target>
 

@@ -43,7 +43,7 @@ public class TokenLengthsAnalyzer implements TokenAnalyzer {
         if (tokenLengths.containsKey(tokenLength)) {
             tokenLengths.replace(tokenLength, tokenLengths.get(tokenLength) + 1);
         } else {
-            tokenLengths.put(tokenLength, new Integer(1));
+            tokenLengths.put(tokenLength, 1);
         }
     }
 

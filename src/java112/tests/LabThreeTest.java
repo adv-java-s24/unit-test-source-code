@@ -82,7 +82,7 @@ public class LabThreeTest {
         lab.run("test");
 
         if (!outContent.toString().equals("input: test\n")) {
-            fail("\t****** The class must output the string \"input: test.\" "
+            fail("\t****** The class must output the string \"input: test\" "
                 + "The string \"input: \" is hard coded and \"test\" is data that was passed "
                 + "to the class from the command line.\n");
         }

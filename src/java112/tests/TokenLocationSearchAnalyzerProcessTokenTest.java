@@ -10,14 +10,11 @@ import java.net.*;
 
 import java112.analyzer.*;
 
-import static org.hamcrest.CoreMatchers.*;
-import org.junit.After;
 import org.junit.AfterClass;
 import static org.junit.Assert.*;
-import org.junit.Before;
+
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.matchers.JUnitMatchers.*;
 
 
 public class TokenLocationSearchAnalyzerProcessTokenTest {
