@@ -241,6 +241,37 @@ public class TokenLocationSearchAnalyzerChallengeOutputTest {
         }
     }
 
+    @Test
+    public void testForLeadingSpace() {
+
+        String lineNine = outputFileContents.get(8);
+
+        if (lineNine.startsWith(" ")) {
+            fail("\tOutput lines must not start with a space: "
+                    + "\n\t\tIncorrect output: \"" + lineNine + "\"\n");
+        }
+    }
+
+    @Test
+    public void testForNoTrailingSpaces() {
+
+        for (String outputLine : outputFileContents) {
+
+            if (outputLine.endsWith(" ")) {
+                fail("\nOutput line has trailing spaces: \"" + outputLine + "\"\n");
+            }
+        }
+    }
 
 
+    @Test
+    public void testForSpaceAfterCommas() {
+
+        int indexOfFirstSpace = outputFileContents.get(4).indexOf(" ");
+
+        if (indexOfFirstSpace != 3) {
+            fail("\tCommas must be followed by a space except at end of line: "
+                    + "\n\t\tIncorrect output: \"" + outputFileContents.get(4) + "\"\n");
+        }
+    }
 }
