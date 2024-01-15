@@ -24,19 +24,20 @@ public class DistinctTokensAnalyzerOutputTest {
     private static List<String> outputFileContents;
 
 
-    private static Properties properties;
-
+    // private static Properties properties;
     @BeforeClass
-    public static void initialSetUp() throws java.io.FileNotFoundException, java.io.IOException {
+    public static void initialSetUp()
+    throws java.io.FileNotFoundException,
+    java.io.IOException {
 
         inputFilePath = "inputFile";
         outputFileContents = new ArrayList<String>();
 
         // The following commented-out code is for projects 2-4.
-        properties = new Properties();
-        properties.setProperty("output.directory", "output/");
-        properties.setProperty("output.file.distinct", "test_distinct_tokens.txt");
-        analyzer = new DistinctTokensAnalyzer(properties);
+        // properties = new Properties();
+        // properties.setProperty("output.dir", "output/");
+        // properties.setProperty("output.file.unique", "test_unique_tokens.txt");
+        analyzer = new DistinctTokensAnalyzer();
 
         //analyzer.processToken("aaa");
         analyzer.processToken("One");
@@ -51,10 +52,11 @@ public class DistinctTokensAnalyzerOutputTest {
         analyzer.processToken("seven");
         analyzer.processToken("eight");
 
-        testOutputFilePath = properties.getProperty("output.directory")
-        + properties.getProperty("output.file.distinct");
+        // testOutputFilePath = properties.getProperty("output.dir")
+        // + properties.getProperty("output.file.unique");
+        testOutputFilePath = "output/distinct_tokens.txt";
 
-        analyzer.generateOutputFile(inputFilePath);
+        analyzer.generateOutputFile(inputFilePath, testOutputFilePath);
 
         testOutput = new BufferedReader(new FileReader(testOutputFilePath));
 
@@ -82,7 +84,7 @@ public class DistinctTokensAnalyzerOutputTest {
 
     @Test
     public void generateOutputFileExistsTest() throws NoSuchMethodException {
-        Method method = DistinctTokensAnalyzer.class.getMethod("generateOutputFile", String.class);
+        Method method = DistinctTokensAnalyzer.class.getMethod("generateOutputFile", String.class, String.class);
 
         if (method == null) {
             fail("\t****** The DistinctTokensAnalyzer class must have a 'generateOutputFile' method.\n");
@@ -90,12 +92,16 @@ public class DistinctTokensAnalyzerOutputTest {
     }
 
     @Test
-    public void outputLineOneTest() {
+    public void outputFileSizeTest() {
+        if (outputFileContents.size() != 9 ) {
+            fail("\t****** The output file should contain 9 lines of output, but it had \n"
+                + "\t****** " + outputFileContents.size() + " lines.");
+        }
 
-        outputLineCheck("One", outputFileContents.get(0));
     }
+
     @Test
-    public void outputLineTwoTest() {
+    public void outputLineOneTest() {
 
         outputLineCheck("eight", outputFileContents.get(1));
         String expectedOutput = "eight";
@@ -103,72 +109,65 @@ public class DistinctTokensAnalyzerOutputTest {
 
 
     @Test
-    public void outputLineThreeTest() {
+    public void outputLineTwoTest() {
 
         outputLineCheck("five", outputFileContents.get(2));
     }
 
 
     @Test
-    public void outputLineFourTest() {
+    public void outputLineThreeTest() {
 
         outputLineCheck("four", outputFileContents.get(3));
     }
 
 
     @Test
-    public void outputLineFiveTest() {
+    public void outputLineFourTest() {
 
         outputLineCheck("one", outputFileContents.get(4));
     }
 
 
     @Test
-    public void outputLineSixTest() {
+    public void outputLineFiveTest() {
 
         outputLineCheck("seven", outputFileContents.get(5));
     }
 
 
     @Test
-    public void outputLineSevenTest() {
+    public void outputLineSixTest() {
 
         outputLineCheck("six", outputFileContents.get(6));
     }
 
 
     @Test
-    public void outputLineEightTest() {
+    public void outputLineSevenTest() {
 
         outputLineCheck("three", outputFileContents.get(7));
     }
 
 
     @Test
-    public void outputLineNineTest() {
+    public void outputLineEightTest() {
 
         outputLineCheck("two", outputFileContents.get(8));
     }
 
-
-
     @Test
-        public void outputFileSizeTest() {
-            if (outputFileContents.size() != 9 ) {
-                fail("\t****** The output file should contain 9 lines of output, but it had \n"
-                    + "\t****** " + outputFileContents.size() + " lines.");
-            }
+    public void outputLineNineTest() {
 
-        }
+        outputLineCheck("One", outputFileContents.get(0));
+    }
 
 
     public void outputLineCheck(String expectedOutput, String lineContent) {
 
         if (!lineContent.equals(expectedOutput)) {
             fail("\t****** The generated output is not correct.\n"
-            + "\t****** Expected <" + expectedOutput + ">, recieved <" + lineContent + ">\n");
+            + "\t****** Expected <" + expectedOutput + ">, received <" + lineContent + ">\n");
         }
     }
-
-
 }
